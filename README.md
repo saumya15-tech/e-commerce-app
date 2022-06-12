@@ -13,7 +13,7 @@ The HomePageComponent consists of listings of 3 products.And a headerComponent.
 The ProductCardComponent consists of the carousel.
 
 ##
-The ProductCardComponent shows the details of the selected product with the add to cart button and price.
+The ProductCardComponent and ProductDetailComponent shows the details of the selected product with the add to cart button and price.
 
 ##
 The CartComponent consists of the shipping methods,total amount.
