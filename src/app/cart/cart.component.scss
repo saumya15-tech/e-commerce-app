@@ -1,0 +1,53 @@
+.mr-2 {
+    margin-right: 20px;
+}
+
+.divTable {
+    display: table;
+    width: 100%;
+}
+
+.rowTable {
+    display: table-row;
+}
+
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableCol,
+.divTableHead {
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+    display: table-cell;
+    padding: 3px 10px;
+}
+
+.divTableHeading {
+    background-color: #EEE;
+    font-size: 10px;
+    display: table-header-group;
+    font-weight: bold;
+}
+
+.divTableFoot {
+    background-color: #EEE;
+    display: table-footer-group;
+    font-weight: bold;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown-select{
+    line-height: 2px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color:#0d6efd;
+}

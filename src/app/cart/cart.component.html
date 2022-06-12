@@ -1,0 +1,60 @@
+<app-header> </app-header>
+<div class="container">
+  <div class="divTable div-hover" *ngIf="cartProductList.length">
+    <div class="rowTable bg-primary text-white pb-2">
+      <div class="divTableCol">Product</div>
+      <div class="divTableCol">Quantity</div>
+      <div class="divTableCol">Price</div>
+      <div class="divTableCol">Total</div>
+      <div class="divTableCol">Actions</div>
+    </div>
+
+    <div class="rowTable" *ngFor="let product of cartProductList">
+      <div class="divTableCol">
+        <div class="media">
+          <a class="pull-left mr-2 ml-0" href="#">
+            <img class="img-fluid" [src]="product.images[0]" style="width: 92px; height: 72px; margin-left: 0" /></a>
+          <div class="media-body">
+            <h5 class="media-heading">{{ product.name }}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="divTableCol">
+        <i class="fas fa-minus-circle p-3" (click)="removeProduct(product)"></i>
+        <strong class="label label-warning">{{ product.count }}</strong>
+        <i class="fas fa-plus-circle p-3" (click)="addProduct(product)"></i>
+      </div>
+
+      <div class="divTableCol">
+        <strong>{{ product.price | currency: "INR":"symbol" }}</strong>
+      </div>
+      <div class="divTableCol">
+        <strong>{{
+          product.price * product.count | currency: "INR":"symbol"
+          }}</strong>
+      </div>
+      <div class="divTableCol">
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(product)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="dropdown pt-3">
+      <h3><b>Select Shipping Method : </b></h3>
+      <select class="dropdown-select text-white" name="list" (change)="onSelected($event)">
+        <option *ngFor="let list of shipping" value="{{ list.price }}">
+          {{ list.name }} {{ list.price | currency: "INR":"symbol" }}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="col-6"><b>Total Cart Value : </b></div>
+      <div class="col-6"><b>{{ getTotal() | currency: "INR":"symbol" }}</b></div>
+    </div>
+  </div>
+  <div class="alert alert-dark pt-1" role="alert" *ngIf="!cartProductList.length" [routerLink]="['']">
+    Add Something to the Cart!
+    <em>Click Here!</em>
+  </div>
+</div>

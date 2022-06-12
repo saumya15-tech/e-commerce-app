@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container">
+  <div class="card" style="width: 18rem">
+    <a>
+      <img
+        class="card-img-top"
+        [src]="product.images[0]"
+        alt="Card image cap"
+      />
+    </a>
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+    </div>
+    <div class="card-body">
+      <button
+        type="button"
+        class="btn btn-primary float-start"
+        (click)="addToCart(product)"
+      >
+        Add to cart
+      </button>
+      <b class="h3 float-end">{{ product.price | currency: "INR":"symbol" }}</b>
+    </div>
+  </div>
+</div>

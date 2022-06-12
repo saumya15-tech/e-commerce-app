@@ -1,0 +1,29 @@
+<a class="card">
+  <div id="carouselExampleCaptions" data-bs-ride="carousel" #carousel id="myCarousel" class="carousel ">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="1000">
+        <a [routerLink]="['/product-details', product.slug]">
+          <img [src]="product.images[0]" class="d-block w-100" />
+        </a>
+      </div>
+
+      <div class="carousel-item" data-interval="3000">
+        <a [routerLink]="['/product-details', product.slug]">
+          <img [src]="product.images[1]" class="d-block w-100" />
+        </a>
+      </div>
+    </div>
+  </div>
+</a>
+
+<div class="card-body">
+  <h5 class="card-title" [routerLink]="['/product-details', product.slug]">
+    {{ product.name }}
+  </h5>
+  <b><i class="card-text">{{ product.description }}</i></b>
+</div>
+
+<button type="button" class="btn btn-primary float-start" (click)="addToCart(product)">
+  Add to cart
+</button>
+<b class="h3 float-end">{{ product.price | currency: "INR":"symbol" }}</b>
